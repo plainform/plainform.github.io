@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The CRA SBOM requirement: what Annex I Part II(1) actually asks for</title>
+<meta name="description" content="The Cyber Resilience Act requires a software bill of materials in a commonly used, machine-readable format covering at least the top-level dependencies. What that means in practice: format, depth, when it is due, and who has to see it.">
+<link rel="canonical" href="https://plainform.github.io/cra/sbom/">
+<link rel="stylesheet" href="/style.css">
+<meta property="og:title" content="The CRA SBOM requirement: what Annex I Part II(1) actually asks for">
+<meta property="og:description" content="Format, depth, timing and audience of the SBOM the Cyber Resilience Act requires — and the three questions that decide whether yours counts.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://plainform.github.io/cra/sbom/">
+</head>
+<body>
+<a class="skip" href="#content">Skip to the main content</a>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="/">Plainform</a>
+    <nav aria-label="Sections">
+      <ul>
+        <li><a href="/cra/">Cyber Resilience Act</a></li>
+        <li><a href="/eaa/">European Accessibility Act</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="content">
+<div class="wrap">
+
+  <h1>The SBOM the Cyber Resilience Act asks for</h1>
+
+  <p class="standfirst">Annex I Part II(1) is one of the few requirements in
+  the CRA specific enough to check mechanically. It is also one of the most
+  widely misread, usually in the direction of doing far more work than the
+  regulation asks.</p>
+
+  <h2>The text</h2>
+
+  <blockquote>Manufacturers shall identify and document vulnerabilities and
+  components contained in products with digital elements, including by drawing
+  up a software bill of materials in a commonly used and machine-readable
+  format covering at the very least the top-level dependencies of the
+  product.</blockquote>
+
+  <p>Four constraints sit in that sentence, and each answers a question people
+  routinely get wrong.</p>
+
+  <h2>1. How deep: top-level is the floor, not the target</h2>
+
+  <p>&ldquo;At the very least the top-level dependencies&rdquo; sets a minimum.
+  It does not cap you there, and in practice a bill of materials generated from
+  a lockfile covers the resolved tree at no extra effort, which is strictly
+  better evidence.</p>
+
+  <p>What it does mean is that a top-level dependency <em>missing</em> from
+  your SBOM is a gap in the one thing the article names explicitly. That makes
+  it the first thing worth checking.</p>
+
+  <h3>Development dependencies</h3>
+
+  <p>The requirement is about components <em>contained in the product</em>. A
+  test runner that never ships to the user is not one of them. Including
+  development dependencies is not wrong in the sense of being forbidden, but
+  treating their absence as a compliance gap is wrong on the law.</p>
+
+  <p>The exception is real and worth knowing: if your build bundles a
+  development dependency into the shipped artefact, it is in the product. Only
+  your build knows that.</p>
+
+  <h2>2. What format: machine-readable, which means a parser can read it</h2>
+
+  <p>The regulation says &ldquo;commonly used and machine-readable&rdquo; and
+  names no format. In practice that means <strong>CycloneDX</strong> or
+  <strong>SPDX</strong>, in JSON or XML.</p>
+
+  <p>A dependency list in a README is not machine-readable. Neither is a PDF
+  export, nor a spreadsheet. The test is whether a market surveillance
+  authority's tooling can parse it without a human in the loop.</p>
+
+  <h2>3. When: the SBOM is due before the product is placed on the market</h2>
+
+  <p>The essential requirements of Annex I apply from <strong>11 December
+  2027</strong>. The SBOM is not a document you produce when asked; it is part
+  of what makes the product conform.</p>
+
+  <p>Annex VII(8) separately requires the SBOM to be part of the technical
+  documentation, to be provided to a market surveillance authority
+  <em>on request</em>. Those are two different obligations and people often
+  collapse them into the second one, which is the more comfortable reading and
+  the wrong one.</p>
+
+  <h2>4. Who sees it: authorities, not necessarily the public</h2>
+
+  <p>The CRA does not require you to publish your SBOM. It requires you to have
+  one, and to be able to produce it. Annex II(9) covers the case where you
+  <em>choose</em> to tell users where to find it.</p>
+
+  <p>This surprises people in both directions. You are not obliged to expose
+  your dependency graph to the world; you are obliged to be able to hand it
+  over on request, for the version in question, which means keeping the copy
+  that corresponds to each release.</p>
+
+  <h2>Three questions that decide whether yours counts</h2>
+
+  <ol>
+    <li><strong>Does it parse?</strong> Valid CycloneDX or SPDX, not a file
+    named like one.</li>
+    <li><strong>Does it cover every top-level dependency</strong> declared in
+    your manifest? This is the explicit floor.</li>
+    <li><strong>Does it say who the manufacturer is?</strong> Supplier metadata
+    is what connects the document to the Annex II(1) identification of the
+    manufacturer. An SBOM that does not name its supplier documents components
+    without documenting a product.</li>
+  </ol>
+
+  <div class="card">
+    <h2>Check yours, or generate one</h2>
+    <p><code>cra-ready</code> checks an existing SBOM against all three
+    questions, and reports which declared top-level dependencies are missing
+    from it:</p>
+    <pre><code>npx cra-ready ./your-project</code></pre>
+    <p>The commercial tier generates a CycloneDX 1.6 SBOM from your lockfile,
+    with supplier metadata and licences, deterministically &mdash; the same
+    dependency tree produces a byte-identical file, so regenerating it in CI
+    produces no diff unless something actually changed.</p>
+    <p><a class="cta" href="https://github.com/plainform/cra-ready">Get cra-ready on GitHub</a></p>
+  </div>
+
+  <h2>What an SBOM does not do</h2>
+
+  <p>It does not tell you whether your dependencies contain known
+  vulnerabilities. That is Annex I Part I(2)(a), a different requirement, and
+  it needs a vulnerability feed because the answer changes daily. Scanners such
+  as OSV-Scanner, Dependabot, Trivy and Grype answer it, and they answer it
+  better than a static document can.</p>
+
+  <p>The two are complementary. The SBOM is the inventory; the scanner is the
+  check against it.</p>
+
+  <p class="limit">A summary of a regulation, written to be useful, not a
+  substitute for reading it, and not legal advice.</p>
+
+</div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p>Written by Francesco Correnti. Sources are linked inline to EUR-Lex.</p>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/cra/">Cyber Resilience Act</a></li>
+      <li><a href="/cra/article-14-reporting/">Article 14 reporting</a></li>
+      <li><a href="https://github.com/plainform">Source on GitHub</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>

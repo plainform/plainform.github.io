@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EU Cyber Resilience Act: what applies, and when</title>
+<meta name="description" content="Regulation (EU) 2024/2847 applies in stages: Article 14 reporting since 11 September 2026, everything else from 11 December 2027. Scope, penalties, and the obligations that leave evidence in a repository.">
+<link rel="canonical" href="https://plainform.github.io/cra/">
+<link rel="stylesheet" href="/style.css">
+<meta property="og:title" content="EU Cyber Resilience Act: what applies, and when">
+<meta property="og:description" content="The CRA applies in stages, and the half everyone quotes is the later one. What lands on which date, and what each obligation actually asks for.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://plainform.github.io/cra/">
+</head>
+<body>
+<a class="skip" href="#content">Skip to the main content</a>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="/">Plainform</a>
+    <nav aria-label="Sections">
+      <ul>
+        <li><a href="/cra/">Cyber Resilience Act</a></li>
+        <li><a href="/eaa/">European Accessibility Act</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="content">
+<div class="wrap">
+
+  <h1>The EU Cyber Resilience Act, by date</h1>
+
+  <p class="standfirst">Regulation (EU) 2024/2847 entered into force on
+  10 December 2024 and applies in stages. Almost every summary quotes one date,
+  December 2027. One obligation is already running.</p>
+
+  <h2>The timeline</h2>
+
+  <div class="scroll">
+  <table>
+    <caption>Application dates under Article 71</caption>
+    <thead>
+      <tr><th scope="col">Date</th><th scope="col">What starts</th><th scope="col">Who it binds</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">10 Dec 2024</th>
+        <td>Entry into force</td>
+        <td>Nobody yet — the clock starts for the stages below</td>
+      </tr>
+      <tr>
+        <th scope="row">11 Jun 2026</th>
+        <td>Chapter IV, notification of conformity assessment bodies</td>
+        <td>Notified bodies, not products</td>
+      </tr>
+      <tr>
+        <th scope="row">11 Sep 2026</th>
+        <td><a href="/cra/article-14-reporting/">Article 14 reporting obligations</a></td>
+        <td><strong>Manufacturers. In force now.</strong></td>
+      </tr>
+      <tr>
+        <th scope="row">11 Dec 2027</th>
+        <td>Everything else: essential requirements, conformity assessment, CE marking, technical documentation</td>
+        <td>Manufacturers, importers, distributors</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>Does it apply to you</h2>
+
+  <p>Three questions decide it, and all three are commercial rather than
+  technical.</p>
+
+  <h3>1. Is it placed on the market in the course of a commercial activity</h3>
+
+  <p>Free and open-source software supplied outside a commercial activity is
+  out of scope. The threshold for &ldquo;commercial&rdquo; is broader than
+  selling a licence: paid support, hosting with a service level agreement, or
+  professional services built around the software all count.</p>
+
+  <p>A legal entity that provides sustained support to open-source software
+  without monetising it may instead be an <strong>open-source software
+  steward</strong> under Article 24, with a much lighter set of obligations
+  centred on a documented cybersecurity policy.</p>
+
+  <h3>2. Which class</h3>
+
+  <p>Most products are assessed under internal control. Products listed in
+  <strong>Annex III</strong> (important, class I or II) and <strong>Annex
+  IV</strong> (critical) follow stricter routes, which can require a notified
+  body. Password managers, network management systems, operating systems,
+  firewalls and identity management systems are examples of the listed
+  categories.</p>
+
+  <h3>3. What is your role</h3>
+
+  <p>Manufacturer, importer and distributor carry different obligations. A
+  company outside the EU that sells to EU consumers is still in scope.</p>
+
+  <h2>The penalties</h2>
+
+  <div class="scroll">
+  <table>
+    <caption>Administrative fines under Article 64</caption>
+    <thead>
+      <tr><th scope="col">Tier</th><th scope="col">Ceiling</th><th scope="col">Applies to</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Top</th>
+        <td>&euro;15 000 000 or 2.5% of worldwide annual turnover</td>
+        <td>The essential requirements of Annex I, and the obligations in Articles 13 and 14</td>
+      </tr>
+      <tr>
+        <th scope="row">Middle</th>
+        <td>&euro;10 000 000 or 2%</td>
+        <td>Other obligations under the regulation</td>
+      </tr>
+      <tr>
+        <th scope="row">Lower</th>
+        <td>&euro;5 000 000 or 1%</td>
+        <td>Supplying incorrect, incomplete or misleading information to authorities</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p>Whichever is higher, in each case. Market surveillance authorities can
+  also require a product to be withdrawn or recalled.</p>
+
+  <h2>What the regulation asks you to be able to show</h2>
+
+  <p>Much of the CRA is about process and product design. A smaller part leaves
+  evidence in a repository, and that part is unusually mechanical:</p>
+
+  <div class="scroll">
+  <table>
+    <caption>Obligations with a documentary artefact</caption>
+    <thead>
+      <tr><th scope="col">Reference</th><th scope="col">Obligation</th><th scope="col">The artefact</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Annex I Part II(1)</th>
+        <td><a href="/cra/sbom/">Software bill of materials</a></td>
+        <td>A machine-readable SBOM covering at least the top-level dependencies</td>
+      </tr>
+      <tr>
+        <th scope="row">Annex I Part II(5)(6)</th>
+        <td>Coordinated vulnerability disclosure</td>
+        <td>A published policy and a contact address for reports</td>
+      </tr>
+      <tr>
+        <th scope="row">Annex I Part II(4)</th>
+        <td>Public disclosure of fixed vulnerabilities</td>
+        <td>Advisories naming severity and affected versions</td>
+      </tr>
+      <tr>
+        <th scope="row">Art. 13(8), Annex II(7)</th>
+        <td>Support period</td>
+        <td>A stated end date, at least five years from placing on the market</td>
+      </tr>
+      <tr>
+        <th scope="row">Annex II</th>
+        <td>Information to the user</td>
+        <td>Manufacturer identity and postal address, point of contact, intended purpose, update instructions</td>
+      </tr>
+      <tr>
+        <th scope="row">Art. 28, Annex V</th>
+        <td>EU declaration of conformity</td>
+        <td>The signed declaration, and the address where users can reach it</td>
+      </tr>
+      <tr>
+        <th scope="row">Art. 31, Annex VII</th>
+        <td>Technical documentation</td>
+        <td>The file, kept available for ten years or the support period</td>
+      </tr>
+      <tr>
+        <th scope="row">Art. 14</th>
+        <td><a href="/cra/article-14-reporting/">Reporting</a></td>
+        <td>A written procedure naming who files, where, and by when</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p>The thirteen product properties of <strong>Annex I Part I</strong> —
+  secure defaults, access control, attack surface, exploit mitigation and the
+  rest — are not on that list on purpose. They are a cybersecurity risk
+  assessment under Annex VII(3), and no scan substitutes for one.</p>
+
+  <div class="card">
+    <h2>Find out what you cannot currently evidence</h2>
+    <p><code>cra-ready</code> checks a repository against the obligations in
+    the table above and reports what is missing, each with its article and the
+    date it becomes enforceable.</p>
+    <pre><code>npx cra-ready ./your-project</code></pre>
+    <p>Free and open source, zero dependencies, no network calls. The
+    commercial tier generates the artefacts: the SBOM, the disclosure policy
+    with the Article 14 procedure, and drafts of the declaration of conformity
+    and technical documentation.</p>
+    <p><a class="cta" href="https://github.com/plainform/cra-ready">Get cra-ready on GitHub</a></p>
+  </div>
+
+  <p class="limit">A summary of a regulation, written to be useful, not a
+  substitute for reading it, and not legal advice. Scope, classification and
+  how to answer an authority are questions for a professional.</p>
+
+</div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p>Written by Francesco Correnti. Sources are linked inline to EUR-Lex.</p>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/cra/article-14-reporting/">Article 14 reporting</a></li>
+      <li><a href="/eaa/">European Accessibility Act</a></li>
+      <li><a href="https://github.com/plainform">Source on GitHub</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>

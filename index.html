@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plainform — EU compliance obligations that leave evidence in your code</title>
+<meta name="description" content="Reference pages and open-source tools for two EU regulations whose requirements are checkable from source: the Cyber Resilience Act and the European Accessibility Act.">
+<link rel="canonical" href="https://plainform.github.io/">
+<link rel="stylesheet" href="/style.css">
+<meta property="og:title" content="Plainform — EU compliance obligations that leave evidence in your code">
+<meta property="og:description" content="Two EU regulations, two open-source checkers, and reference pages that say what each obligation actually asks for.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://plainform.github.io/">
+</head>
+<body>
+<a class="skip" href="#content">Skip to the main content</a>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="/">Plainform</a>
+    <nav aria-label="Sections">
+      <ul>
+        <li><a href="/cra/">Cyber Resilience Act</a></li>
+        <li><a href="/eaa/">European Accessibility Act</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="content">
+<div class="wrap">
+
+  <h1>Compliance obligations that leave evidence in your code</h1>
+
+  <p class="standfirst">Most EU compliance is judgement about process, and a
+  tool cannot help you honestly. Two regulations are different: their
+  requirements resolve to artefacts a machine can check. These pages say what
+  each obligation actually asks for, and the checkers are free and open
+  source.</p>
+
+  <h2>Cyber Resilience Act</h2>
+
+  <p>Regulation (EU) 2024/2847. The part everyone quotes applies from
+  11 December 2027 — but the <a href="/cra/article-14-reporting/">Article 14
+  reporting obligation</a> has been in force since
+  <strong>11 September 2026</strong>, with a 24-hour deadline attached.</p>
+
+  <ul>
+    <li><a href="/cra/">What applies, and when</a> — the staged timeline,
+    scope, the three penalty tiers, and which obligations produce a document</li>
+    <li><a href="/cra/article-14-reporting/">Article 14 reporting</a> — the
+    24-hour, 72-hour and 14-day stages, where reports go, and what to write
+    down before you need it</li>
+    <li><a href="/cra/sbom/">The SBOM requirement</a> — format, depth, timing
+    and audience of what Annex I Part II(1) asks for</li>
+  </ul>
+
+  <p>The checker: <code>npx cra-ready ./your-project</code> reports the
+  obligations a repository cannot currently evidence, each with its article and
+  the date it becomes enforceable.</p>
+
+  <h2>European Accessibility Act</h2>
+
+  <p>Enforceable since 28 June 2025. The standard behind it is EN 301 549,
+  which for the web resolves clause by clause to WCAG 2.1 level AA.</p>
+
+  <ul>
+    <li><a href="/eaa/">The Act, the standard and the mapping</a> — who is
+    covered, how EN 301 549 clauses map to WCAG criteria, what enforcement has
+    looked like, and the 30&ndash;40% limit of automated testing</li>
+  </ul>
+
+  <p>The checker: <code>npx eaa-lint ./src</code> reports WCAG 2.1 AA
+  violations in your source with <code>file:line</code>, mapped to both the
+  criterion and the EN clause.</p>
+
+  <h2>Why source rather than a rendered page</h2>
+
+  <p>Runtime tools see the result and cannot tell you which component produced
+  it. Reading the source gives you a file and a line, which is where the fix
+  has to happen — and it works in a pull request, before anything is deployed.</p>
+
+  <p>They answer different questions and the right setup runs both.</p>
+
+  <h2>What these tools will never tell you</h2>
+
+  <p>That you are compliant. Neither regulation can be satisfied by a static
+  check: the CRA's essential product requirements are a risk assessment, and
+  most WCAG criteria need a person with a screen reader. What a checker can do
+  is enumerate what is provably missing, and cite the clause for each item.</p>
+
+  <p>Anyone selling automated conformance is selling a liability. That is not
+  modesty; it is the difference between a defensible paper trail and a document
+  that makes things worse when someone reads it carefully.</p>
+
+  <p class="limit">These pages summarise regulations to be useful. They are not
+  legal advice, and they are not a substitute for the texts, which are linked
+  throughout. Written by Francesco Correnti.</p>
+
+</div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p>Open source on GitHub. No trackers, no cookies, no third-party requests.</p>
+    <ul>
+      <li><a href="/cra/">Cyber Resilience Act</a></li>
+      <li><a href="/eaa/">European Accessibility Act</a></li>
+      <li><a href="https://github.com/plainform/cra-ready">cra-ready</a></li>
+      <li><a href="https://github.com/plainform/eaa-audit">eaa-audit</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>

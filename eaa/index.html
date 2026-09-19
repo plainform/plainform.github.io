@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>European Accessibility Act: EN 301 549, WCAG 2.1 AA and what enforcement looks like</title>
+<meta name="description" content="The European Accessibility Act has been enforceable since 28 June 2025. What it requires, how EN 301 549 maps onto WCAG 2.1 AA, who is exempt, and the 30-40% of criteria automated testing can actually reach.">
+<link rel="canonical" href="https://plainform.github.io/eaa/">
+<link rel="stylesheet" href="/style.css">
+<meta property="og:title" content="European Accessibility Act: EN 301 549, WCAG 2.1 AA and what enforcement looks like">
+<meta property="og:description" content="Enforceable since 28 June 2025. The standard, the mapping, the exemptions, and the honest limit of automated testing.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://plainform.github.io/eaa/">
+</head>
+<body>
+<a class="skip" href="#content">Skip to the main content</a>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="/">Plainform</a>
+    <nav aria-label="Sections">
+      <ul>
+        <li><a href="/cra/">Cyber Resilience Act</a></li>
+        <li><a href="/eaa/">European Accessibility Act</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="content">
+<div class="wrap">
+
+  <p><span class="live">Enforceable since 28 June 2025</span></p>
+
+  <h1>The European Accessibility Act, and the standard behind it</h1>
+
+  <p class="standfirst">The EAA has been enforceable since 28 June 2025, and
+  2026 is the first full year national authorities supervise against it. The
+  law names accessibility requirements; the standard that says what they mean
+  in practice is EN 301 549, and for the web that resolves to WCAG 2.1
+  level AA.</p>
+
+  <h2>Who it applies to</h2>
+
+  <p>Anyone selling covered products or services to consumers in the EU:
+  e-commerce, banking, telecoms, transport, e-books, audiovisual media
+  services. Including companies established outside the EU, if they sell into
+  it.</p>
+
+  <p><strong>Microenterprises</strong> — fewer than 10 employees
+  <em>and</em> under &euro;2 million turnover — are exempt for
+  <em>services</em>, not for products. The threshold matters: the typical
+  buyer of remediation work sits above it, which is also why the typical buyer
+  has a budget.</p>
+
+  <h2>How the standard maps</h2>
+
+  <p>The mapping is direct and mechanical, which is unusual in compliance work
+  and makes this one of the few regulated areas a tool can check honestly. For
+  web content:</p>
+
+  <blockquote>EN 301 549 clause 9.x.y.z corresponds to WCAG success criterion
+  x.y.z.</blockquote>
+
+  <p>So a failure of WCAG 2.1.1 Keyboard is a failure of EN 301 549 clause
+  9.2.1.1, and that clause number is what an auditor or a law firm will cite.
+  For non-web software the same correspondence lives in clause 11.x.y.z.</p>
+
+  <div class="scroll">
+  <table>
+    <caption>Examples of the mapping, with what each one catches in source</caption>
+    <thead>
+      <tr><th scope="col">WCAG</th><th scope="col">Level</th><th scope="col">EN 301 549</th><th scope="col">Typical source failure</th></tr>
+    </thead>
+    <tbody>
+      <tr><th scope="row">1.1.1 Non-text Content</th><td>A</td><td>9.1.1.1</td><td><code>&lt;img&gt;</code> with no <code>alt</code> attribute at all</td></tr>
+      <tr><th scope="row">2.1.1 Keyboard</th><td>A</td><td>9.2.1.1</td><td>A click handler on a <code>&lt;div&gt;</code>, unreachable by keyboard</td></tr>
+      <tr><th scope="row">3.3.2 Labels or Instructions</th><td>A</td><td>9.3.3.2</td><td>A form field labelled only by a placeholder</td></tr>
+      <tr><th scope="row">4.1.2 Name, Role, Value</th><td>A</td><td>9.4.1.2</td><td>An icon-only button with no accessible name</td></tr>
+      <tr><th scope="row">2.4.7 Focus Visible</th><td>AA</td><td>9.2.4.7</td><td><code>outline: none</code> with no <code>:focus-visible</code> replacement</td></tr>
+      <tr><th scope="row">1.4.4 Resize Text</th><td>AA</td><td>9.1.4.4</td><td><code>user-scalable=no</code> in the viewport meta tag</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>What enforcement has looked like</h2>
+
+  <p>Penalties are set nationally and run up to 5% of turnover for large
+  companies in some member states, with figures in the &euro;5 000 to
+  &euro;40 000 range for others, and market withdrawal in the worst cases.</p>
+
+  <p>In practice the first contact is rarely a regulator. It is a rights
+  association filing a formal notice, or a law firm's letter — typically with
+  a window of around 90 days to remediate. That window is the reason the
+  expensive part is not detection.</p>
+
+  <h2>The limit nobody selling you a tool wants to state</h2>
+
+  <p><strong>Automated testing reaches 30&ndash;40% of the WCAG success
+  criteria.</strong> The rest needs human judgement and testing with assistive
+  technology: whether an <code>alt</code> attribute is <em>correct</em> rather
+  than merely present, whether the reading order matches the meaning, whether
+  headings and labels are descriptive, whether a screen reader can actually
+  complete the task.</p>
+
+  <p>No automated tool can certify conformance, and anyone promising one is
+  selling a liability. That is not a caveat — it is the reason overlay vendors
+  ended up in front of regulators, and it is why an honest tool is worth more
+  to someone with a notice on their desk than a confident one.</p>
+
+  <h2>Where the hours actually go</h2>
+
+  <p>Detection is solved. axe, Lighthouse and WAVE are good, free and
+  widely used. What they cannot do is tell you which component in your source
+  produced the problem: they run against the rendered page, so they report a
+  symptom on a URL, not a file and a line.</p>
+
+  <p>The work sits in the two steps after that — fixing it in the code, and
+  producing the accessibility statement and the clause-by-clause report an
+  auditor reads. Almost nobody does the second one until they have to.</p>
+
+  <div class="card">
+    <h2>Audit your source, not your rendered page</h2>
+    <p><code>eaa-lint</code> is a free, open-source checker. It reads a web
+    codebase and reports WCAG 2.1 AA violations with <code>file:line</code>,
+    each mapped to both the WCAG criterion and the EN 301 549 clause.</p>
+    <pre><code>npx eaa-lint ./src</code></pre>
+    <p>23 rules, zero dependencies, nothing leaves your machine. Use it
+    alongside axe or Lighthouse, not instead of them: source analysis and
+    runtime analysis see different things.</p>
+    <p><a class="cta" href="https://github.com/plainform/eaa-audit">Get eaa-audit on GitHub</a></p>
+  </div>
+
+  <p class="limit">A summary of a regulation, written to be useful, not a
+  substitute for reading it, and not legal advice. On penalties in your member
+  state, specific obligations, or how to answer a formal notice, talk to a
+  professional.</p>
+
+</div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p>Written by Francesco Correnti.</p>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/cra/">Cyber Resilience Act</a></li>
+      <li><a href="https://github.com/plainform">Source on GitHub</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>

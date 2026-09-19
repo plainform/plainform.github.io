@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CRA Article 14 reporting: the 24-hour, 72-hour and 14-day deadlines</title>
+<meta name="description" content="Since 11 September 2026, manufacturers must report actively exploited vulnerabilities to ENISA and their national CSIRT within 24 hours. What Article 14 of the Cyber Resilience Act requires, who files, and what to write down before you need it.">
+<link rel="canonical" href="https://plainform.github.io/cra/article-14-reporting/">
+<link rel="stylesheet" href="/style.css">
+<meta property="og:title" content="CRA Article 14 reporting: the 24-hour, 72-hour and 14-day deadlines">
+<meta property="og:description" content="The reporting obligation of the EU Cyber Resilience Act has been in force since 11 September 2026. Most CRA coverage gives one date, December 2027. That is the wrong half of the timeline.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://plainform.github.io/cra/article-14-reporting/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "CRA Article 14 reporting: the 24-hour, 72-hour and 14-day deadlines",
+  "description": "What Article 14 of Regulation (EU) 2024/2847 requires from manufacturers, in force since 11 September 2026.",
+  "datePublished": "2026-09-19",
+  "author": { "@type": "Person", "name": "Francesco Correnti" },
+  "about": { "@type": "Legislation", "name": "Regulation (EU) 2024/2847 (Cyber Resilience Act)" }
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#content">Skip to the main content</a>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="/">Plainform</a>
+    <nav aria-label="Sections">
+      <ul>
+        <li><a href="/cra/">Cyber Resilience Act</a></li>
+        <li><a href="/eaa/">European Accessibility Act</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="content">
+<div class="wrap">
+
+  <p><span class="live">In force since 11 September 2026</span></p>
+
+  <h1>Article 14: the reporting obligation that is already running</h1>
+
+  <p class="standfirst">Most writing about the Cyber Resilience Act gives one
+  date, 11 December 2027, and most teams have filed it under next year's
+  problem. That is the wrong half of the timeline. The reporting obligations of
+  Article 14 started on <strong>11 September 2026</strong>, and they come with a
+  24-hour clock.</p>
+
+  <h2>What triggers it</h2>
+
+  <p>Two things, and only two. Article 14 of
+  <a href="https://eur-lex.europa.eu/eli/reg/2024/2847/oj/eng">Regulation (EU)
+  2024/2847</a> obliges a manufacturer to report:</p>
+
+  <ul>
+    <li>an <strong>actively exploited vulnerability</strong> contained in a
+    product with digital elements it has placed on the EU market, and</li>
+    <li>a <strong>severe incident</strong> having an impact on the security of
+    such a product.</li>
+  </ul>
+
+  <p>Note the word <em>actively</em>. A vulnerability you discover in your own
+  code, or one reported to you by a researcher, does not trigger Article 14 on
+  its own. Evidence that someone is exploiting it does.</p>
+
+  <p>The obligation applies to products already on the market before the
+  regulation fully applies. &ldquo;We shipped it in 2024&rdquo; is not an
+  exemption.</p>
+
+  <h2>The deadlines</h2>
+
+  <div class="scroll">
+  <table>
+    <caption>Article 14 reporting stages for an actively exploited vulnerability</caption>
+    <thead>
+      <tr><th scope="col">Deadline</th><th scope="col">What is filed</th><th scope="col">Contents</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">24 hours</th>
+        <td>Early warning</td>
+        <td>That the vulnerability is being actively exploited, and the member states where the product has been made available, to the extent known.</td>
+      </tr>
+      <tr>
+        <th scope="row">72 hours</th>
+        <td>Vulnerability notification</td>
+        <td>General information about the product, the nature of the vulnerability, and any corrective or mitigating measures taken or that users can take.</td>
+      </tr>
+      <tr>
+        <th scope="row">14 days</th>
+        <td>Final report</td>
+        <td>A description of the vulnerability including its severity and impact, any malicious actor known to have exploited it, and the corrective measures made available.</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p>For a <strong>severe incident</strong>, the 24-hour and 72-hour stages are
+  the same and the final report is due within <strong>one month</strong>.</p>
+
+  <p>The final report is due within 14 days of a corrective or mitigating
+  measure becoming available. The clock on the first two stages starts when you
+  <em>become aware</em> — not when you finish investigating, and not when you
+  have a fix.</p>
+
+  <h2>Where the reports go</h2>
+
+  <p>To the <abbr title="Computer Security Incident Response Team">CSIRT</abbr>
+  designated as coordinator for your member state, and to
+  <abbr title="European Union Agency for Cybersecurity">ENISA</abbr>, through
+  the <strong>Single Reporting Platform</strong> that ENISA has operated since
+  11 September 2026.</p>
+
+  <p>Which national CSIRT is yours depends on where you are established. There
+  are twenty-seven of them, and the time to find out is not at hour one of a
+  24-hour window.</p>
+
+  <h2>What this costs if you get it wrong</h2>
+
+  <p>Article 64 puts non-compliance with the obligations in Articles 13 and 14,
+  and with the essential requirements of Annex I, at the top tier: administrative
+  fines of up to <strong>&euro;15 000 000 or 2.5% of total worldwide annual
+  turnover</strong> for the preceding financial year, whichever is higher.</p>
+
+  <h2>What to write down, before you need it</h2>
+
+  <p>Nothing in a repository or a policy document can prove that you would meet
+  a 24-hour deadline. What it can show is that someone decided, in advance, who
+  files and where. That difference is the whole of the preparation:</p>
+
+  <ol>
+    <li><strong>Which CSIRT</strong> is yours, with the URL of its reporting
+    channel and your ENISA Single Reporting Platform account.</li>
+    <li><strong>Who files</strong> — a named role, and a deputy. A 24-hour
+    deadline with no named owner is not a procedure.</li>
+    <li><strong>What counts as &ldquo;aware&rdquo;</strong> for your
+    organisation, so the clock has a defined start.</li>
+    <li><strong>Which products</strong> you have placed on the EU market, and
+    their versions. You cannot report about a product you cannot enumerate.</li>
+    <li><strong>How this connects to your disclosure policy</strong>, so a
+    researcher's report reaches the person who owns the regulatory clock.</li>
+  </ol>
+
+  <p>All five belong in the same document as your coordinated vulnerability
+  disclosure policy, which Annex I Part II(5) requires anyway.</p>
+
+  <div class="card">
+    <h2>Check what your repository can currently evidence</h2>
+    <p><code>cra-ready</code> is a free, open-source checker. It reads a
+    repository and reports the CRA obligations it cannot evidence &mdash; the
+    Article 14 procedure among them &mdash; each mapped to its article or annex
+    point and to the date it becomes enforceable.</p>
+    <pre><code>npx cra-ready ./your-project</code></pre>
+    <p>Zero dependencies, nothing leaves your machine.</p>
+    <p><a class="cta" href="https://github.com/plainform/cra-ready">Get cra-ready on GitHub</a></p>
+  </div>
+
+  <h2>The rest of the timeline</h2>
+
+  <p>Article 14 is the only obligation binding manufacturers today. The
+  essential requirements of Annex I, conformity assessment, CE marking and the
+  technical documentation all apply from <strong>11 December 2027</strong>.
+  The <a href="/cra/">Cyber Resilience Act overview</a> sets out what lands
+  when, and what each obligation asks for.</p>
+
+  <p class="limit">This page is a summary of a regulation, written to be
+  useful, not a substitute for reading it. It is not legal advice. Whether the
+  CRA applies to your product, which class it falls in under Annex III or Annex
+  IV, and how to answer a market surveillance authority are questions for a
+  professional.</p>
+
+</div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p>Written by Francesco Correnti. Sources are linked inline to EUR-Lex.</p>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/cra/">Cyber Resilience Act</a></li>
+      <li><a href="/eaa/">European Accessibility Act</a></li>
+      <li><a href="https://github.com/plainform">Source on GitHub</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>
